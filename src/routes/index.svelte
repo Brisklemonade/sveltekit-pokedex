@@ -20,9 +20,9 @@
 	<title>Svelte Kit Pokedex</title>
 </svelte:head>
 
-<h1 class="text-4xl text-center my-8 uppercase">Svelte Kit Pokedex</h1>
+<h1 class="text-4xl text-center my-8 uppercase">Pokedex</h1>
 <input
-	class="w-full rounded-lg text-lg p-4 border-2 dark:bg-transparent dark:border-[#4D4D4D] focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent "
+	class="mobile-focus w-full rounded-lg text-lg p-4 border-2 dark:bg-transparent dark:border-[#4D4D4D] focus:outline-none focus:ring-2 sm:focus:ring-green-400 focus:border-transparent"
 	type="text"
 	placeholder="Search Pokemon"
 	bind:value={searchTerm}
@@ -34,4 +34,9 @@
 </div>
 
 <style>
+	@media (max-width: 640px) {
+		.mobile-focus:focus {
+			box-shadow: 0 0 0 2pt rgba(52, 211, 153, 1);
+		}
+	}
 </style>
