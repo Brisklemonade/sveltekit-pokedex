@@ -20,6 +20,11 @@
 	const capitalizeFirstLetter = (pokemanName) => {
 		return pokemanName.charAt(0).toUpperCase() + pokemanName.slice(1);
 	};
+
+	let scrollElement;
+	const test = (e) => {
+		scrollElement.scrollLeft += e.deltaY;
+	};
 </script>
 
 <svelte:head>
@@ -45,7 +50,11 @@
 		<div class="flex flex-col sm:mx-auto">
 			<h3 class="mx-auto text-xl my-4 lg:my-2 uppercase">Locations {pokeman.name} can be found</h3>
 			<div
-				class="flex flex-col text-center mb-6 sm:flex-row space-y-3 sm:space-y-0 sm:space-x-10 sm:items-center"
+				bind:this={scrollElement}
+				on:mousewheel|preventDefault={(e) => {
+					test(e);
+				}}
+				class="location-list flex flex-col flex-nowrap text-center mb-6 sm:flex-row space-y-3 sm:space-y-0 sm:space-x-10 sm:items-center max-w-lg overflow-x-scroll"
 			>
 				{#each pokemanLocation as location}
 					<p>{location['location_area'].name}</p>
@@ -62,5 +71,12 @@
 <style>
 	.stripe-shadow {
 		box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	}
+	.location-list::-webkit-scrollbar {
+		display: none;
+	}
+	.location-list {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
 </style>

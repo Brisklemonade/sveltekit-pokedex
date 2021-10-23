@@ -2,6 +2,7 @@
 	import { pokemon } from '../stores/pokestore';
 	import PokemanCard from '../components/pokemanCard.svelte';
 
+	// -------------------------------- for search ------------------------------
 	let searchTerm = '';
 	let filteredPokemon = [];
 
