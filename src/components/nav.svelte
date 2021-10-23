@@ -1,7 +1,7 @@
 <script>
 	export let dark;
 
-	const showNavModal = false;
+	let showNavModal = false;
 	const toggleModal = () => {
 		showNavModal = !showNavModal;
 	};
