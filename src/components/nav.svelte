@@ -16,7 +16,7 @@
 		<a href="/" class="uppercase md:text-xl lg:text-3xl">Svelte Kit Pokedex</a>
 		<div class="mx-4 flex items-center space-x-5">
 			<a class="hidden sm:inline-block text-lg mx-4" href="/">Home</a>
-			<a class="hidden sm:inline-block text-lg mx-4" href="/">About</a>
+			<a class="hidden sm:inline-block text-lg mx-4" href="/about">About</a>
 			<button
 				class="text-white rounded-lg w-20 py-1 dark:border-2 dark:border-white bg-green-400"
 				on:click|preventDefault={() => {
