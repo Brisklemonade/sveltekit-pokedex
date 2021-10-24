@@ -5,7 +5,7 @@
 </script>
 
 <div class:dark>
-	<div class="min-h-screen bg-white dark:bg-[#282C31] dark:text-white">
+	<div class="min-h-screen bg-gray-200 dark:bg-[#282C31] dark:text-white">
 		<Navbar bind:dark />
 		<div class="p-8 max-w-6xl mx-auto">
 			<slot />

@@ -23,7 +23,7 @@
 
 <h1 class="text-4xl text-center my-8 uppercase">Pokedex</h1>
 <input
-	class="mobile-focus w-full rounded-lg text-lg p-4 border-2 dark:bg-transparent dark:border-[#4D4D4D] focus:outline-none focus:ring-2 sm:focus:ring-green-400 focus:border-transparent"
+	class="mobile-focus w-full rounded-lg text-lg p-4 border-2 border-black/25 dark:bg-transparent dark:border-[#4D4D4D] focus:outline-none focus:ring-2 sm:focus:ring-green-400 sm:focus:border-transparent sm:dark:focus:border-transparent"
 	type="text"
 	placeholder="Search Pokemon"
 	bind:value={searchTerm}
