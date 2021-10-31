@@ -1,12 +1,19 @@
 <script>
+	import Atropos from 'atropos/svelte';
 </script>
 
 <svelte:head>
 	<title>About the Svelte Kit Pokedex</title>
 </svelte:head>
 
-<h1 class="text-4xl text-center my-8 uppercase">About</h1>
-<img class="mx-auto w-60 h-w-60" src="/PokeBall.png" alt="PokeBall Icon" />
+<div class="flex flex-col items-center">
+	<h1 class="text-4xl text-center my-8 uppercase">About</h1>
+	<div class="atropos my-4">
+		<Atropos rotateTouch={(true, 'scroll-y')}>
+			<img class="poke-atropos" src="/masterball.png" alt="PokeBall Icon" />
+		</Atropos>
+	</div>
+</div>
 <div class="text-center text-lg w-3/5 mx-auto space-y-8 mt-10">
 	<p class="">
 		This project is being developed to catalogue and provide information regarding the various
@@ -15,9 +22,20 @@
 	<p>
 		This project is also being made to show the power of the <a
 			class="text-[#FF3E00] dark:text-yellow-500"
+			sveltekit:prefetch
 			href="https://svelte.dev/"
 			target="_blank"
 			rel="noreferrer">Svelte</a
 		> framework
 	</p>
 </div>
+
+<style>
+	.atropos {
+		width: max-content;
+	}
+	.poke-atropos {
+		width: 20rem;
+		height: 20rem;
+	}
+</style>
