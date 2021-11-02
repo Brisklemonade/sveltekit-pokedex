@@ -1,13 +1,21 @@
 <script>
+	import Icon from 'svelte-awesome';
+	import { longArrowLeft } from 'svelte-awesome/icons';
+	import ThreeDButton from '../components/utility/ThreeDButton.svelte';
 </script>
 
 <svelte:head>
 	<title>Games</title>
 </svelte:head>
 
-<div class="text-center my-52">
-	<p class="text-3xl animate-pulse">Page under development check back later...</p>
-	<span>
-		<a class="underline hover:text-green-400" href="/">Home</a>
-	</span>
+<div class="mt-52 sm:mx-">
+	<p class="text-center text-xl sm:text-3xl animate-pulse mb-5">
+		Page under development check back later...
+	</p>
+	<a href="/">
+		<ThreeDButton>
+			<Icon scale={2} data={longArrowLeft} />
+			<p class="font-black text-xl">Home</p>
+		</ThreeDButton>
+	</a>
 </div>

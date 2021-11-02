@@ -81,6 +81,6 @@
 <style>
 	.unclickable {
 		pointer-events: none;
-		cursor: default;
+		cursor: not-allowed;
 	}
 </style>

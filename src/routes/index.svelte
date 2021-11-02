@@ -45,7 +45,7 @@
 	</div>
 
 	<div class="flex flex-col items-center mb-2">
-		<Atropos class="atropos" alwaysActive={false}>
+		<Atropos shadow={false} shadowScale={0} class="atropos" alwaysActive={false}>
 			<img
 				class="imgOne w-60 h-60 sm:w-96 sm:h-96"
 				src="/masterballback.png"
@@ -62,15 +62,22 @@
 	</div>
 	<GridCard>
 		<CategoryCard link={'pokemoncategory'} title={'Pokedex'}>
-			<img class="w-5/12" src="/pokemonemblem.png" alt="something" />
+			<img class="no-select w-5/12" src="/pokemonemblem.png" alt="something" />
 		</CategoryCard>
 		<CategoryCard link={'gamecategory'} title={'Games'}>
-			<img class="w-3/12" src="/SwordShield.png" alt="something" />
+			<img class="no-select w-3/12" src="/SwordShield.png" alt="something" />
 		</CategoryCard>
 	</GridCard>
 {/if}
 
 <style>
+	.no-select {
+		user-select: none;
+		-webkit-user-drag: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
 	.center {
 		display: grid;
 		place-content: center;

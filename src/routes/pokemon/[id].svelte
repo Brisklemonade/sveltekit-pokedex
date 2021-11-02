@@ -15,6 +15,9 @@
 </script>
 
 <script>
+	import Icon from 'svelte-awesome';
+	import { longArrowLeft } from 'svelte-awesome/icons';
+
 	export let pokeman;
 	export let pokemanLocation;
 
@@ -70,7 +73,14 @@
 			</p>
 		</div>
 	</div>
-	<a class="underline" href="/pokemoncategory">Go Back</a>
+	<a class="w-1/2 sm:w-2/12" href="/pokemoncategory">
+		<div
+			class="mt-4 p-2 flex justify-center items-center space-x-3 rounded-lg border-2 border-black dark:border-white hover:shadow-lg dark:hover:scale-105 transition-all duration-150 ease-linear"
+		>
+			<Icon data={longArrowLeft} />
+			<p>Go Back</p>
+		</div>
+	</a>
 </div>
 
 <style>
