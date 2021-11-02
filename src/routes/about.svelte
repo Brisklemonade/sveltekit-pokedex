@@ -9,8 +9,8 @@
 <div class="flex flex-col items-center">
 	<h1 class="text-4xl text-center my-8 uppercase">About</h1>
 	<div class="atropos my-4">
-		<Atropos rotateTouch={(true, 'scroll-y')}>
-			<img class="poke-atropos" src="/masterball.png" alt="PokeBall Icon" />
+		<Atropos shadowScale={0} shadow={false} rotateTouch={(true, 'scroll-y')}>
+			<img class="poke-atropos" src="/masterball.png" alt="PokeBall Icon" data-atropos-offset="5" />
 		</Atropos>
 	</div>
 </div>

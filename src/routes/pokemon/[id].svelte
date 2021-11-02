@@ -44,6 +44,7 @@
 		<!-- image div -->
 		<div class="rounded-tl-3xl lg:border-r-2 lg:border-gray-300">
 			<img
+				id="poke-sprite"
 				class="w-52 h-52 lg:m-0 lg:w-80 lg:h-80 mx-auto lg:rounded-tl-3xl lg:rounded-bl-3xl"
 				src={pokeman.sprites['front_default']}
 				alt={pokeman.name}
@@ -69,9 +70,13 @@
 			</p>
 		</div>
 	</div>
+	<a class="underline" href="/pokemoncategory">Go Back</a>
 </div>
 
 <style>
+	#poke-sprite {
+		image-rendering: pixelated;
+	}
 	.stripe-shadow {
 		box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 	}

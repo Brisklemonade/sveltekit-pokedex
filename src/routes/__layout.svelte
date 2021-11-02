@@ -1,8 +1,8 @@
 <script>
-	import Navbar from '../components/nav.svelte';
+	import Navbar from '../components/Navbar.svelte';
 	import 'atropos/css/min';
 
-	let dark = true;
+	let dark = false;
 </script>
 
 <div class:dark>
