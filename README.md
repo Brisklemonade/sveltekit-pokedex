@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">Pokedex made with Svelte Kit</h1>
-  <h3 align="center">A web app that has information on various pokemon *In Development*.</h3>
+  <h3 align="center">A web app that has information on various pokemon.</h3>
 </p>
 
 ## Overview
