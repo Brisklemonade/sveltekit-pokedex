@@ -48,7 +48,7 @@
 		<Atropos shadow={false} shadowScale={0} class="atropos" alwaysActive={false}>
 			<img
 				class="imgOne w-60 h-60 sm:w-96 sm:h-96"
-				src="/masterballback.png"
+				src="/masterballback.jpeg"
 				alt="masterball icon background"
 				data-atropos-offset="-5"
 			/>
