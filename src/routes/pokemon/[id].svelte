@@ -17,12 +17,23 @@
 <script>
 	import Icon from 'svelte-awesome';
 	import { longArrowLeft } from 'svelte-awesome/icons';
+	import { pokemon } from '../../stores/pokestore';
 
 	export let pokeman;
 	export let pokemanLocation;
 
+	// variables
+	let isDefaultSprite = 'default';
+	let isDefault = true;
+
+	// logic
+	const pokemanIndex = pokeman.id - 1;
 	const type = pokeman.types[0].type.name;
+
+	const pokemanColor = $pokemon[pokemanIndex].colors[type];
 	const pokemanName = pokeman.name;
+
+	// unique functions
 	const capitalizeFirstLetter = (pokemanName) => {
 		return pokemanName.charAt(0).toUpperCase() + pokemanName.slice(1);
 	};
@@ -30,6 +41,15 @@
 	let scrollElement;
 	const horizontalScroll = (e) => {
 		scrollElement.scrollLeft += e.deltaY;
+	};
+
+	const handleShiny = () => {
+		isDefault = !isDefault;
+		if (!isDefault) {
+			isDefaultSprite = 'shiny';
+		} else {
+			isDefaultSprite = 'default';
+		}
 	};
 </script>
 
@@ -45,11 +65,15 @@
 		class="stripe-shadow flex flex-col lg:flex-row w-11/12 lg:w-full rounded-3xl border dark:border-white"
 	>
 		<!-- image div -->
-		<div class="rounded-tl-3xl lg:border-r-2 lg:border-gray-300">
+		<div
+			style="background-color: {pokemanColor}"
+			class="shadow-2xl rounded-tl-3xl rounded-tr-3xl lg:rounded-br-3xl lg:rounded-bl-3xl lg:border-r-2 lg:border-gray-300"
+		>
 			<img
+				on:click={handleShiny}
 				id="poke-sprite"
 				class="w-52 h-52 lg:m-0 lg:w-80 lg:h-80 mx-auto lg:rounded-tl-3xl lg:rounded-bl-3xl"
-				src={pokeman.sprites['front_default']}
+				src={pokeman.sprites[`front_${isDefaultSprite}`]}
 				alt={pokeman.name}
 			/>
 		</div>

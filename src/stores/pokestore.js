@@ -14,20 +14,20 @@ const fetchPokemon = async () => {
 				index + 1
 			}.png`,
 			colors: {
-				fire: '#FDDFDF',
-				grass: '#DEFDE0',
-				electric: '#FCF7DE',
-				water: '#DEF3FD',
-				ground: '#f4e7da',
-				rock: '#d5d5d4',
-				fairy: '#fceaff',
-				poison: '#98d7a5',
-				bug: '#f8d5a3',
-				dragon: '#97b3e6',
-				psychic: '#eaeda1',
-				flying: '#F5F5F5',
-				fighting: '#E6E0D4',
-				normal: '#F5F5F5'
+				fire: '#F57D31',
+				grass: '#74CB48',
+				electric: '#F9CF30',
+				water: '#6493EB',
+				ground: '#DEC16B',
+				rock: '#B69E31',
+				fairy: '#E69EAC',
+				poison: '#A43E9E',
+				bug: '#A7B723',
+				dragon: '#7037FF',
+				psychic: '#FB5584',
+				flying: '#A891EC',
+				fighting: '#C12239',
+				normal: '#AAA67F'
 			}
 		};
 	});
