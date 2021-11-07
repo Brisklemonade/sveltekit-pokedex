@@ -1,11 +1,10 @@
 <script>
 	import { fade } from 'svelte/transition';
 	export let pokeman;
-	// console.log(pokeman.colors.fire)
 </script>
 
 <a
-	class="stripe-shadow p-6 dark:border-2 dark:bg-[#282C31] dark:border-[#4D4D4D] text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center space-y-5"
+	class="stripe-shadow p-6 dark:border-2 dark:bg-[#282C31] dark:border-[#4D4D4D] text-center rounded-md shadow-sm flex flex-col items-center space-y-5 hover:shadow-2xl transition-shadow duration-200 ease-linear dark:shadow-none dark:hover:scale-95 dark:transition-transform dark:duration-150 dark:ease-linear"
 	href={`/pokemon/${pokeman.id}`}
 	in:fade
 >

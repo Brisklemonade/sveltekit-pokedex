@@ -2,6 +2,7 @@
 	import Icon from 'svelte-awesome';
 	import { slide } from 'svelte/transition';
 	import { close, bars } from 'svelte-awesome/icons';
+	import PokeballSVG from './utility/PokeballSVG.svelte';
 	export let dark;
 
 	const navLinks = [
@@ -19,9 +20,16 @@
 	class="w-full h-16 shadow-md dark:shadow-none dark:border-b border-[#4D4D4D] bg-white dark:bg-[#282C31]"
 >
 	<div class="flex justify-between items-center mx-4 md:mx-32 pt-3">
-		<a href="/" class="text-green-500 dark:text-green-400 uppercase md:text-xl lg:text-3xl"
-			>Svelte Kit Pokedex</a
-		>
+		<div>
+			<a
+				href="/"
+				class="hidden sm:block text-green-500 dark:text-green-400 uppercase md:text-xl lg:text-3xl"
+				>Svelte Kit Pokedex</a
+			>
+			<a href="/" class="sm:hidden">
+				<PokeballSVG className={'inline-block'} fill={'#10b981'} size={36} />
+			</a>
+		</div>
 		<div class="mx-4 flex items-center space-x-5">
 			<a
 				class="hidden sm:inline-block text-lg mx-4 hover:text-green-500 dark:hover:text-green-400"

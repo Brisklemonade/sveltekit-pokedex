@@ -1,5 +1,7 @@
 # Major Changes
 
 - Added transitions for less snappy navigation
-- Revamped individual pokemon info pages
+- Completly revamped individual pokemon info pages
 - Added colors
+- Mobile improvements
+- Made error pages

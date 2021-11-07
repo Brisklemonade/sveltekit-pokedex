@@ -1,5 +1,5 @@
 <script context="module">
-	export async function load({ page }) {
+	export async function load({ page, fetch }) {
 		const id = page.params.id;
 		// urls
 		const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -10,6 +10,7 @@
 		// props
 		const pokemanLocation = await locationRES.json();
 		const pokeman = await pokemonRES.json();
+
 		return { props: { pokeman, pokemanLocation } };
 	}
 </script>
@@ -72,9 +73,9 @@
 			<img
 				on:click={handleShiny}
 				id="poke-sprite"
-				class="w-52 h-52 lg:m-0 lg:w-80 lg:h-80 mx-auto lg:rounded-tl-3xl lg:rounded-bl-3xl"
+				class="w-52 h-52 lg:m-0 lg:w-80 lg:h-80 p-0 mx-auto lg:rounded-tl-3xl lg:rounded-bl-3xl"
 				src={pokeman.sprites[`front_${isDefaultSprite}`]}
-				alt={pokeman.name}
+				alt={`${pokeman.name} icon`}
 			/>
 		</div>
 		<!-- main content div -->
