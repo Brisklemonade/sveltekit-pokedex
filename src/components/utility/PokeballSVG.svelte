@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let fill = '#000000';
 	export let className = '';
 	export let size = 24;

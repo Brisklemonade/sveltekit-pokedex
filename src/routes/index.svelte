@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import PokeballSvg from '../components/utility/PokeballSVG.svelte';
 	import Atropos from 'atropos/svelte';
 	import { onMount } from 'svelte';

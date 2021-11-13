@@ -9,7 +9,7 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import PokeballSvg from '../components/utility/PokeballSVG.svelte';
 
 	export let error;

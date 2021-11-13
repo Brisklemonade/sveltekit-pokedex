@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Icon from 'svelte-awesome';
 	import { longArrowLeft } from 'svelte-awesome/icons';
 	import ThreeDButton from '../components/utility/ThreeDButton.svelte';

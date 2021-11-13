@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Icon from 'svelte-awesome';
 	import { slide } from 'svelte/transition';
 	import { close, bars } from 'svelte-awesome/icons';

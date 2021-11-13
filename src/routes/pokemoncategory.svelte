@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { pokemon } from '../stores/pokestore';
 	import PokemanCard from '../components/PokemanCard.svelte';
 	import GridCard from '../components/GridCard.svelte';

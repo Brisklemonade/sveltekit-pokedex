@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 </script>
 
 <div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
