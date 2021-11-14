@@ -3,9 +3,12 @@
 	export let pokeman;
 </script>
 
+<!-- /pokemon/${pokeman.id} -->
+
 <a
-	class="stripe-shadow p-6 dark:border-2 dark:bg-[#282C31] dark:border-[#4D4D4D] text-center rounded-md shadow-sm flex flex-col items-center space-y-5 hover:shadow-2xl transition-shadow duration-200 ease-linear dark:shadow-none dark:hover:scale-95 dark:transition-transform dark:duration-150 dark:ease-linear"
-	href={`/pokemon/${pokeman.id}`}
+	sveltekit:prefetch
+	class="stripe-shadow p-6 dark:border-2 dark:bg-[#282C31] dark:border-[#4D4D4D] text-center rounded-md shadow-sm flex flex-col items-center space-y-5 dark:shadow-none hover:scale-95 transition-transform duration-150 ease-linear"
+	href={`gamecategory`}
 	in:fade
 >
 	<div
@@ -16,7 +19,7 @@
 	<div
 		class="circle-shadow text-2xl font-bold py-1 px-6 rounded-full border-2 border-transparent dark:border-2 dark:border-white"
 	>
-		#{pokeman.id < 10 ? `00${pokeman.id}` : pokeman.id < 100 ? `0${pokeman.id}` : pokeman.id}
+		{`${pokeman.id}`.padStart(3, '0')}
 	</div>
 	<h2 class="uppercase text-2xl">{pokeman.name}</h2>
 </a>
