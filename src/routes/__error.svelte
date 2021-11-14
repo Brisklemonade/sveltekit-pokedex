@@ -9,7 +9,7 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import PokeballSvg from '../components/utility/PokeballSVG.svelte';
 
 	export let error;
@@ -29,8 +29,9 @@
 		</div>
 		<div class="text-center sm:text-left">
 			<p class="text-lg font-light sm:text-3xl">Sorry the server made an oopsie</p>
+			<p class="text-lg font-light sm:text-3xl">Try refreshing the page</p>
 			<p class="text-lg font-light sm:text-3xl">
-				Check your connection, then find your way back to the <a
+				Or check your connection, then find your way back to the <a
 					class="underline text-green-500 dark:text-green-400"
 					href="/">Homepage</a
 				>.

@@ -5,7 +5,11 @@
 
 ## Overview
 
-This is even better than the nextjs pokedex, and I will be migrating my development to this one
+Svelte was chosen for this project because it is a "rich, state-model-based ES6 component framework" with few dependencies, requiring only html, javascript, and CSS. There are no client-side dependencies, once compiled with svelte; it's just plain JS.
+
+Svelte is a simple compiler that allows you to create a reactive, stateful, and dependency-free web application in pure javascript.
+
+Furthermore, the Svelte API is so simple and well-designed that you can learn it from scratch in no time at all!
 
 ## Installation
 

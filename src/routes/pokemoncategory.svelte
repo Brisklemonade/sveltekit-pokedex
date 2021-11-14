@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { pokemon } from '../stores/pokestore';
 	import PokemanCard from '../components/PokemanCard.svelte';
 	import GridCard from '../components/GridCard.svelte';
@@ -22,7 +22,7 @@
 </svelte:head>
 
 <input
-	class="mobile-focus w-full rounded-lg text-lg p-4 border-2 border-black/25 dark:bg-transparent dark:border-[#4D4D4D] focus:outline-none focus:ring-2 sm:focus:ring-green-400 sm:focus:border-transparent sm:dark:focus:border-transparent"
+	class="mobile-focus w-full rounded-lg text-lg p-4 border-2 border-black/25 dark:bg-transparent dark:border-[#4D4D4D]  focus:outline-none focus:border-[#e786d7] dark:focus:border-[#7f7fd5] sm:focus:ring-2 sm:focus:ring-[#e786d7] sm:focus:border-transparent sm:dark:focus:ring-[#7f7fd5]"
 	type="text"
 	placeholder="Search Pokemon"
 	bind:value={searchTerm}
@@ -36,7 +36,7 @@
 <style>
 	@media (max-width: 640px) {
 		.mobile-focus:focus {
-			box-shadow: 0 0 0 2pt rgba(52, 211, 153, 1);
+			border: 2px solid#e786d7;
 		}
 	}
 </style>

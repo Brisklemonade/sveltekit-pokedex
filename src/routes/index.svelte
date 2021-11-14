@@ -1,23 +1,25 @@
-<script>
+<script lang="ts">
 	import PokeballSvg from '../components/utility/PokeballSVG.svelte';
 	import Atropos from 'atropos/svelte';
 	import { onMount } from 'svelte';
 	import CategoryCard from '../components/CategoryCard.svelte';
 	import GridCard from '../components/GridCard.svelte';
-	import { slide } from 'svelte/transition';
+	import { slide, fade } from 'svelte/transition';
 	import { cubicIn, cubicOut } from 'svelte/easing';
 
 	// variables
-	let visible = false;
+	let noScroll;
+	let visible: boolean = false;
+	let src: string =
+		'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
 
 	// logic
 	onMount(() => {
-		setTimeout(() => {
-			return (visible = true);
-		}, 200);
+		visible = true;
 	});
 
 	// unique functions
+
 	function typewriter(node, { speed = 1.2 }) {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
 
@@ -43,8 +45,10 @@
 </svelte:head>
 
 {#if !visible}
-	<div class="center text-3xl animate-pulse mt-40 sm:mt-60">
-		<PokeballSvg className={'animate-spin'} fill={'black'} size={120} />
+	<div on:scroll={noScroll}>
+		<div class="grid place-content-center text-3xl animate-pulse mt-40 sm:mt-60">
+			<PokeballSvg className={'animate-spin'} fill={'black'} size={120} />
+		</div>
 	</div>
 {:else}
 	<div
@@ -53,11 +57,10 @@
 	>
 		<div
 			in:typewriter
-			class="text-center text-lg font-extrabold sm:font-normal sm:text-4xl mb-6 sm:mb-8"
+			class="animate-text text-center text-4xl tracking-tighter font-sans font-bold sm:text-7xl"
 		>
 			Welcome to the Sveltekit Pokedex!
 		</div>
-
 		<div class="flex flex-col items-center mb-2">
 			<Atropos
 				shadow={false}
@@ -79,14 +82,19 @@
 				/>
 			</Atropos>
 		</div>
-		<GridCard>
-			<CategoryCard link={'pokemoncategory'} title={'Pokedex'}>
-				<img class="no-select w-5/12" src="/pokemonemblem.png" alt="Pokemon Emblem Icon" />
-			</CategoryCard>
-			<CategoryCard link={'gamecategory'} title={'Games'}>
-				<img class="no-select w-3/12" src="/SwordShield.png" alt="Pokemon Sword Shield Icon" />
-			</CategoryCard>
-		</GridCard>
+		<div class="h-96 overflow-y-scroll px-2">
+			<GridCard>
+				<CategoryCard link={'pokemoncategory'} title={'Pokedex'}>
+					<img class="no-select w-5/12" src="/pokemonemblem.png" alt="Pokemon Emblem Icon" />
+				</CategoryCard>
+				<CategoryCard link={'gamecategory'} title={'Games'}>
+					<img class="no-select w-3/12" src="/SwordShield.png" alt="Pokemon Sword Shield Icon" />
+				</CategoryCard>
+				<CategoryCard link={'/'} title={`who's that pokemon (coming soon)`}>
+					<img class="pixel filter brightness-0 no-select w-5/12" {src} alt="Pokemon" />
+				</CategoryCard>
+			</GridCard>
+		</div>
 	</div>
 {/if}
 
@@ -98,15 +106,34 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 	}
-	.center {
-		display: grid;
-		place-content: center;
+	.pixel {
+		image-rendering: pixelated;
 	}
 	.imgTwo {
 		position: absolute;
 		top: 8%;
 		left: 8%;
 	}
+	.animate-text {
+		animation: flow 8s ease-in-out infinite;
+		background: linear-gradient(-60deg, #7f7fd5, #e786d7);
+		background-size: 200%;
+		background-clip: inherit;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	@keyframes flow {
+		0% {
+			background-position: 0 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0 50%;
+		}
+	}
+
 	@media (max-width: 640px) {
 		.imgTwo {
 			position: absolute;

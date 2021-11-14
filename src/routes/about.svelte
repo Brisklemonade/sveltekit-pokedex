@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Atropos from 'atropos/svelte';
 	import { fade } from 'svelte/transition';
 	import { cubicIn, cubicOut } from 'svelte/easing';

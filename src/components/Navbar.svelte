@@ -1,16 +1,21 @@
-<script>
+<script lang="ts">
 	import Icon from 'svelte-awesome';
 	import { slide } from 'svelte/transition';
 	import { close, bars } from 'svelte-awesome/icons';
 	import PokeballSVG from './utility/PokeballSVG.svelte';
-	export let dark;
+
+	// props
+	export let dark: string | boolean;
+
+	// variables
+	let showNavModal: boolean = false;
 
 	const navLinks = [
 		{ title: 'Home', link: '/' },
 		{ title: 'About', link: '/about' }
 	];
 
-	let showNavModal = false;
+	// functionality
 	const toggleModal = () => {
 		showNavModal = !showNavModal;
 	};
@@ -23,24 +28,28 @@
 		<div>
 			<a
 				href="/"
-				class="hidden sm:block text-green-500 dark:text-green-400 uppercase md:text-xl lg:text-3xl"
+				class="hidden sm:block uppercase font-bold tracking-wide text-[#e786d7] dark:text-[#7f7fd5] md:text-xl lg:text-3xl rounded-md  p-1 hover:bg-[#e786d7] hover:text-white dark: dark:hover:bg-[#7f7fd5] dark:hover:text-white transition-all duration-250 ease-linear"
 				>Svelte Kit Pokedex</a
 			>
-			<a href="/" class="sm:hidden">
-				<PokeballSVG className={'inline-block'} fill={'#10b981'} size={36} />
-			</a>
+			{#if dark}
+				<a href="/" class="sm:hidden">
+					<PokeballSVG className={'inline-block'} fill={'#7f7fd5'} size={36} />
+				</a>
+			{:else}
+				<a href="/" class="sm:hidden">
+					<PokeballSVG className={'inline-block'} fill={'#e786d7'} size={36} />
+				</a>
+			{/if}
 		</div>
 		<div class="mx-4 flex items-center space-x-5">
-			<a
-				class="hidden sm:inline-block text-lg mx-4 hover:text-green-500 dark:hover:text-green-400"
-				href="/">Home</a
-			>
-			<a
-				class="hidden sm:inline-block text-lg mx-4 hover:text-green-500 dark:hover:text-green-400"
-				href="/about">About</a
-			>
+			{#each navLinks as links}
+				<a
+					class="hidden sm:inline-block text-lg mx-4 hover:text-[#e786d7] dark:hover:text-[#7f7fd5] hover:underline"
+					href={links.link}>{links.title}</a
+				>
+			{/each}
 			<button
-				class="text-white rounded-lg w-20 py-1 border-2 bg-green-500 dark:border-white dark:bg-green-400"
+				class="ani text-white font-bold rounded-md w-20 py-1 "
 				on:click|preventDefault={() => {
 					dark = !dark;
 				}}
@@ -49,11 +58,11 @@
 			<button on:click={toggleModal} class="sm:hidden">
 				{#if showNavModal}
 					<div class="w-7">
-						<Icon scale="2" data={close} />
+						<Icon class="text-[#e786d7]" scale={2} data={close} />
 					</div>
 				{:else}
 					<div class="w-7">
-						<Icon scale="2" data={bars} />
+						<Icon class="text-[#e786d7]" scale={2} data={bars} />
 					</div>
 				{/if}
 			</button>
@@ -72,7 +81,7 @@
 				<a
 					on:click={toggleModal}
 					class={showNavModal
-						? 'block text-3xl transition-colors duration-150 ease-linear hover:text-green-500 dark:hover:text-green-400'
+						? 'block text-3xl transition-colors duration-150 ease-linear hover:text-[#e786d7] dark:hover:text-[#7f7fd5]'
 						: 'hidden'}
 					href={links.link}>{links.title}</a
 				>
@@ -90,5 +99,21 @@
 	.unclickable {
 		pointer-events: none;
 		cursor: not-allowed;
+	}
+	.ani {
+		animation: flow 8s ease-in-out infinite;
+		background: linear-gradient(-60deg, #7f7fd5, #e786d7);
+		background-size: 200%;
+	}
+	@keyframes flow {
+		0% {
+			background-position: 0 50%;
+		}
+		50% {
+			background-position: 90% 75%;
+		}
+		100% {
+			background-position: 0 50%;
+		}
 	}
 </style>

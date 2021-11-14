@@ -17,9 +17,11 @@
 
 <script lang="ts">
 	import Icon from 'svelte-awesome';
-	import { arrowLeft, chevronLeft, chevronRight } from 'svelte-awesome/icons';
+	import { arrowLeft, chevronLeft, chevronRight, longArrowLeft } from 'svelte-awesome/icons';
 	import { pokemon } from '../../stores/pokestore';
 	import PokeballSVG from '../../components/utility/PokeballSVG.svelte';
+	import GridCard from '../../components/GridCard.svelte';
+	import BtnStandard from '../../components/utility/BtnStandard.svelte';
 
 	export let pokeman: any;
 	export let pokemanLocation;
@@ -38,6 +40,10 @@
 	const pokemanName = pokeman.name;
 
 	// unique functions
+	const goBack = () => {
+		window.history.back();
+	};
+
 	const capitalizeFirstLetter = (pokemanName) => {
 		return pokemanName.charAt(0).toUpperCase() + pokemanName.slice(1);
 	};
@@ -56,56 +62,25 @@
 	<title>{capitalizeFirstLetter(pokemanName)} Details</title>
 </svelte:head>
 
-<!-- container -->
-<div class="grid place-content-center">
-	<!-- full card -->
+<BtnStandard func={goBack}>
+	<div class="space-x-3 flex items-center">
+		<Icon data={longArrowLeft} scale={2} />
+		<span class="font-bold"> Go back </span>
+	</div>
+</BtnStandard>
+
+<GridCard>
 	<div
-		style="background-color: {pokemanColor};"
-		class="rounded-xl w-11/12 h-[640px] sm:w-[360px] sm:h-[640px]"
+		class="outline-black flex items-center justify-between text-3xl uppercase text-center sm:text-4xl sm:block"
 	>
-		<div class="flex justify-end" />
-
-		<!-- navigation arrows -->
-
-		<!-- pokemon data -->
-		<div class="bg-white rounded-lg w-full sm:w-[352px] sm:h-[404px] mx-auto mt-4">
-			<div class="mx-5 pt-14">
-				<div class="">
-					{type}
-				</div>
-				<div class="">About</div>
-				<div class="">Base Stats</div>
-			</div>
+		<span>{pokeman.name}</span>
+		<span>#{`${pokeman.id}`.padStart(3, '0')}</span>
+	</div>
+	<div class="outline-black w-full flex justify-center">
+		<div style="background-color: {pokemanColor};" class="w-full sm:w-11/12 h-[540px]">
+			Div content
 		</div>
 	</div>
-</div>
+</GridCard>
 
-<!-- 
---pokeball svg --
-<PokeballSVG className={'absolute top-24'} fill={'#ffffff21'} size={220} />
--- pokemon sprite --
-<img
-	id="poke-sprite"
-	class="bg-transparent"
-	src={pokeman.sprites['front_default']}
-	alt={`${pokeman.name} image`}
-/>
-
---top row--
-<div class="flex items-center justify-between text-white p-6 pb-0">
-	<div class="flex items-center">
-		<a href="/pokemoncategory">
-			<Icon data={arrowLeft} />
-		</a>
-		<h1 class="ml-4">{pokeman.name}</h1>
-	</div>
-	<div>#00{pokeman.id}</div>
-</div>
-
--- navigation arrows
-<div class="flex justify-between mx-6 mt-36 text-white">
-	<Icon data={chevronLeft} />
-	<Icon data={chevronRight} />
-</div>
--->
 <style></style>

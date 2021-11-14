@@ -1,7 +1,7 @@
-<script>
-	export let fill = '#000000';
-	export let className = '';
-	export let size = 24;
+<script lang="ts">
+	export let fill: string = '#000000';
+	export let className: string = '';
+	export let size: number = 24;
 </script>
 
 <svg

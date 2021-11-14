@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import Icon from 'svelte-awesome';
 	import { longArrowLeft } from 'svelte-awesome/icons';
-	import ThreeDButton from '../components/utility/ThreeDButton.svelte';
+	import BtnStandard from '../components/utility/BtnStandard.svelte';
 	import { fade } from 'svelte/transition';
 	import { cubicIn, cubicOut } from 'svelte/easing';
 </script>
@@ -16,10 +16,12 @@
 			Page under development check back later...
 		</p>
 		<a href="/">
-			<ThreeDButton>
-				<Icon scale={2} data={longArrowLeft} />
-				<p class="font-black text-xl">Home</p>
-			</ThreeDButton>
+			<BtnStandard>
+				<div class="space-x-3 flex items-center">
+					<Icon data={longArrowLeft} scale={2} />
+					<span class="text-xl font-bold">Home</span>
+				</div>
+			</BtnStandard>
 		</a>
 	</div>
 </div>
