@@ -1,16 +1,18 @@
 <script lang="ts">
 	import Icon from 'svelte-awesome';
 	import { longArrowLeft } from 'svelte-awesome/icons';
-	import BtnStandard from '../components/utility/BtnStandard.svelte';
+	import BtnStandard from '../../components/utility/BtnStandard.svelte';
 	import { fade } from 'svelte/transition';
 	import { cubicIn, cubicOut } from 'svelte/easing';
+	import PageTitle from '$lib/components/PageTitle.svelte';
 </script>
 
 <svelte:head>
-	<title>Games</title>
+	<title>Who's That Pokemon?</title>
 </svelte:head>
 
 <div in:fade={{ duration: 450, easing: cubicIn }} out:fade={{ duration: 200, easing: cubicOut }}>
+	<PageTitle title={`Who's that pokemon`} />
 	<div class="mt-52 sm:mx-">
 		<p class="text-center text-xl sm:text-3xl animate-pulse mb-5">
 			Page under development check back later...

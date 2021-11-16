@@ -101,8 +101,8 @@
 		cursor: not-allowed;
 	}
 	.ani {
-		animation: flow 8s ease-in-out infinite;
-		background: linear-gradient(-60deg, #7f7fd5, #e786d7);
+		animation: flow 4s ease-in-out infinite;
+		background: linear-gradient(-75deg, #7f7fd5, #e786d7);
 		background-size: 200%;
 	}
 	@keyframes flow {
