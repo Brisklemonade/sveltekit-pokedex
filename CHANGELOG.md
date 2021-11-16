@@ -16,6 +16,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - When screen size increases, navbar modal stays open
 
+## [0.4.5] - 2021-10
+
+### Added
+
+- Added hint for dragging pokeball
+
+### Changed
+
+### Removed
+
 ## [0.4.1] - 2021-10
 
 ### Added

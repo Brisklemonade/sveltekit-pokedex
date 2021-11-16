@@ -2,6 +2,7 @@
 	import { Fractils } from 'fractils';
 	import Navbar from '../components/Navbar.svelte';
 	import 'atropos/css/min';
+
 	let dark: string | boolean;
 </script>
 

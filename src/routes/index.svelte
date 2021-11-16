@@ -1,14 +1,14 @@
 <script lang="ts">
 	import PokeballSvg from '../components/utility/PokeballSVG.svelte';
 	import Atropos from 'atropos/svelte';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import CategoryCard from '../components/CategoryCard.svelte';
 	import GridCard from '../components/GridCard.svelte';
-	import { slide, fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import { cubicIn, cubicOut } from 'svelte/easing';
+	import { hint } from '$lib/stores/hint';
 
 	// variables
-	let noScroll;
 	let visible: boolean = false;
 	let src: string =
 		'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
@@ -19,8 +19,11 @@
 	});
 
 	// unique functions
+	const removeHint = () => {
+		$hint = '';
+	};
 
-	function typewriter(node, { speed = 1.2 }) {
+	const typewriter = (node, { speed = 1.2 }) => {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
 
 		if (!valid) {
@@ -37,7 +40,7 @@
 				node.textContent = text.slice(0, i);
 			}
 		};
-	}
+	};
 </script>
 
 <svelte:head>
@@ -45,7 +48,7 @@
 </svelte:head>
 
 {#if !visible}
-	<div on:scroll={noScroll}>
+	<div>
 		<div class="grid place-content-center text-3xl animate-pulse mt-40 sm:mt-60">
 			<PokeballSvg className={'animate-spin'} fill={'black'} size={120} />
 		</div>
@@ -62,7 +65,13 @@
 			Welcome to the Sveltekit Pokedex!
 		</div>
 		<div class="flex flex-col items-center mb-2">
+			<div
+				class="md:absolute animate-pulse uppercase sm:text-xl p-1 rounded-md text-[#e786d7] dark:text-[#7f7fd5]"
+			>
+				{$hint}
+			</div>
 			<Atropos
+				on:enter={removeHint}
 				shadow={false}
 				shadowScale={0}
 				class="w-64 h-[270px] sm:w-96 sm:h-96"
@@ -82,16 +91,16 @@
 				/>
 			</Atropos>
 		</div>
-		<div class="h-96 overflow-y-scroll px-2">
+		<div class="md:h-96 md:overflow-y-scroll md:px-2">
 			<GridCard>
-				<CategoryCard link={'pokemoncategory'} title={'Pokedex'}>
+				<CategoryCard link={'category/pokemon'} title={'Pokedex'}>
 					<img class="no-select w-5/12" src="/pokemonemblem.png" alt="Pokemon Emblem Icon" />
 				</CategoryCard>
-				<CategoryCard link={'gamecategory'} title={'Games'}>
+				<CategoryCard link={'category/game'} title={'Games'}>
 					<img class="no-select w-3/12" src="/SwordShield.png" alt="Pokemon Sword Shield Icon" />
 				</CategoryCard>
-				<CategoryCard link={'/'} title={`who's that pokemon (coming soon)`}>
-					<img class="pixel filter brightness-0 no-select w-5/12" {src} alt="Pokemon" />
+				<CategoryCard link={'category/whoisthatpokemon'} title={`who's that pokemon (coming soon)`}>
+					<img class="pixel filter brightness-0 w-5/12" {src} alt="Pokemon" />
 				</CategoryCard>
 			</GridCard>
 		</div>

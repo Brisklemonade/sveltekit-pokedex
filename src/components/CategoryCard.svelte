@@ -7,7 +7,7 @@
 <a
 	sveltekit:prefetch
 	style={className}
-	class="stripe-shadow py-6 rounded-xl sm:rounded-2xl text-center dark:border-2 dark:bg-[#282C31] dark:border-[#4D4D4D] hover:ring-8 hover:ring-[#e786d7] dark:hover:ring-[#7f7fd5] active:bg-[#e786d7] dark:active:bg-[#7f7fd5] dark:shadow-none dark:hover:border-transparent hover:scale-95 transition-all duration-150 ease-linear"
+	class="stripe-shadow py-6 rounded-xl sm:rounded-2xl text-center dark:border-2 dark:bg-[#282C31] dark:border-[#4D4D4D] active:bg-[#e786d7] dark:active:bg-[#7f7fd5] dark:shadow-none hover:scale-95 transition-all duration-150 ease-linear"
 	href={`${link}`}
 >
 	<div class="flex flex-col items-center space-y-5">
