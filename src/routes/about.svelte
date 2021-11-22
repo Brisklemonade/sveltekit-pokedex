@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>About the Svelte Kit Pokedex</title>
+	<title>About | Sveltekit Pokedex</title>
 </svelte:head>
 
 <div in:fade={{ duration: 700, easing: cubicIn }} out:fade={{ duration: 300, easing: cubicOut }}>
