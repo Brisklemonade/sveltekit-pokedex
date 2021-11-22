@@ -3,6 +3,7 @@
 	import { slide } from 'svelte/transition';
 	import { close, bars } from 'svelte-awesome/icons';
 	import PokeballSVG from './utility/PokeballSVG.svelte';
+	import { darkMode } from '$lib/stores/darkMode';
 
 	// props
 	export let dark: string | boolean;
@@ -51,6 +52,7 @@
 			<button
 				class="ani text-white font-bold rounded-md w-20 py-1 "
 				on:click|preventDefault={() => {
+					darkMode.set(!dark);
 					dark = !dark;
 				}}
 				>{dark ? 'DARK' : 'LIGHT'}

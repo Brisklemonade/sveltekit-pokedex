@@ -31,6 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@macfja/svelte-persistent-store": "^1.2.0",
 		"atropos": "^1.0.1",
 		"svelte-awesome": "^2.4.2"
 	}

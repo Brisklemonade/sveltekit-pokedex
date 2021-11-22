@@ -7,11 +7,14 @@
 	import { slide } from 'svelte/transition';
 	import { cubicIn, cubicOut } from 'svelte/easing';
 	import { hint } from '$lib/stores/hint';
+	import { darkMode } from '$lib/stores/darkMode';
 
 	// variables
+	let dark = $darkMode;
 	let visible: boolean = false;
-	let src: string =
-		'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
+	let src: string = 'https://cdn.traction.one/pokedex/pokemon/1.png';
+
+	$: primary = $darkMode ? '#7f7fd5' : '#e786d7';
 
 	// logic
 	onMount(() => {
@@ -44,14 +47,16 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Home | Sveltekit Pokedex</title>
 </svelte:head>
 
 {#if !visible}
-	<div>
-		<div class="grid place-content-center text-3xl animate-pulse mt-40 sm:mt-60">
+	<div class="grid place-content-center text-3xl animate-pulse mt-40 sm:mt-60">
+		{#if dark === true}
+			<PokeballSvg className={'animate-spin'} fill={'white'} size={120} />
+		{:else if dark === false}
 			<PokeballSvg className={'animate-spin'} fill={'black'} size={120} />
-		</div>
+		{/if}
 	</div>
 {:else}
 	<div
@@ -84,23 +89,38 @@
 					data-atropos-offset="-5"
 				/>
 				<img
-					class="imgTwo w-60 h-60 sm:w-80 sm:h-80"
+					class="absolute top-[2%] left-[3%] w-60 h-60 sm:w-80 sm:h-80 sm:top-[8%] sm:left-[8%]"
 					src="/masterball.png"
 					alt="masterball icon"
 					data-atropos-offset="10"
 				/>
 			</Atropos>
 		</div>
-		<div class="md:h-96 md:overflow-y-scroll md:px-2">
+		<div style="--primary:{primary}" class="md:h-96 md:overflow-y-scroll md:px-2">
 			<GridCard>
 				<CategoryCard link={'category/pokemon'} title={'Pokedex'}>
-					<img class="no-select w-5/12" src="/pokemonemblem.png" alt="Pokemon Emblem Icon" />
+					<img
+						slot="image"
+						class="no-select w-5/12"
+						src="/pokemonemblem.png"
+						alt="Pokemon Emblem Icon"
+					/>
 				</CategoryCard>
 				<CategoryCard link={'category/game'} title={'Games'}>
-					<img class="no-select w-3/12" src="/SwordShield.png" alt="Pokemon Sword Shield Icon" />
+					<img
+						slot="image"
+						class="no-select w-3/12"
+						src="/SwordShield.png"
+						alt="Pokemon Sword Shield Icon"
+					/>
 				</CategoryCard>
 				<CategoryCard link={'category/whoisthatpokemon'} title={`who's that pokemon (coming soon)`}>
-					<img class="pixel filter brightness-0 w-5/12" {src} alt="Pokemon" />
+					<img
+						slot="image"
+						class="filter brightness-0 hover:brightness-100 w-5/12 transition-all duration-150 ease-linear"
+						{src}
+						alt="Pokemon"
+					/>
 				</CategoryCard>
 			</GridCard>
 		</div>
@@ -114,14 +134,6 @@
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
-	}
-	.pixel {
-		image-rendering: pixelated;
-	}
-	.imgTwo {
-		position: absolute;
-		top: 8%;
-		left: 8%;
 	}
 	.animate-text {
 		animation: flow 8s ease-in-out infinite;
@@ -142,12 +154,20 @@
 			background-position: 0 50%;
 		}
 	}
+	/* width */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
 
-	@media (max-width: 640px) {
-		.imgTwo {
-			position: absolute;
-			top: 2%;
-			left: 3%;
-		}
+	/* Track */
+	::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px rgb(128, 128, 128);
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: var(--primary);
+		border-radius: 10px;
 	}
 </style>

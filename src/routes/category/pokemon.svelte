@@ -1,21 +1,8 @@
-<script context="module">
-	export async function load({ fetch }) {
-		const typeURL = `https://pokeapi.co/api/v2/type`;
-		const typeRes = await fetch(typeURL);
-		const typeData = await typeRes.json();
-		return {
-			props: { typeData }
-		};
-	}
-</script>
-
 <script lang="ts">
 	import { pokemon } from '../../stores/pokestore';
 	import PokemanCard from '../../components/PokemanCard.svelte';
 	import GridCard from '../../components/GridCard.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
-
-	export let typeData;
 
 	// variables
 	let searchTerm: string = '';
@@ -33,12 +20,6 @@
 		}
 	}
 	// unique functions
-	const pokemanTypes = typeData.results.map((data, index) => {
-		return {
-			type: data.name,
-			id: index + 1
-		};
-	});
 </script>
 
 <svelte:head>
@@ -56,7 +37,7 @@
 />
 <GridCard>
 	{#each filteredPokemon as pokeman}
-		<PokemanCard {pokeman} {pokemanTypes} />
+		<PokemanCard {pokeman} />
 	{/each}
 </GridCard>
 

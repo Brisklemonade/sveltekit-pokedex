@@ -10,13 +10,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Features:
 
 - Completly revamp individual pokemon info pages
-- Keep same theme on page refresh
 
 ### Bugs to fix:
 
 - When screen size increases, navbar modal stays open
 
-## [0.4.5] - 2021-10
+## [0.4.5] - 2021-11-
+
+### Added
+
+- Pokemon Pages are completly new!
+- Keep same theme on page refresh
+
+### Changed
+
+- Exchanged pixelated images for high res images
+
+### Removed
+
+## [0.4.5] - 2021-11-
 
 ### Added
 
@@ -26,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-## [0.4.1] - 2021-10
+## [0.4.1] - 2021-11
 
 ### Added
 

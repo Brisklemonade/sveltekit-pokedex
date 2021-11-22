@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	export let pokeman;
-	export let pokemanTypes;
-	console.log(pokeman);
 </script>
 
 <!--  -->
@@ -14,7 +12,7 @@
 	in:fade
 >
 	<div
-		class="circle-shadow  p-2 rounded-full border-2 border-transparent dark:border-2 dark:border-gray-200"
+		class="circle-shadow  p-6 rounded-full border-2 border-transparent dark:border-2 dark:border-gray-200"
 	>
 		<img class="h-40 w-40" src={pokeman.image} alt={pokeman.name} />
 	</div>
@@ -28,7 +26,7 @@
 
 <style>
 	img {
-		image-rendering: pixelated;
+		image-rendering: auto;
 	}
 	.stripe-shadow {
 		box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;

@@ -11,7 +11,7 @@
 	href={`${link}`}
 >
 	<div class="flex flex-col items-center space-y-5">
-		<slot />
+		<slot name="image" />
 		<p class="uppercase font-black">{title}</p>
 	</div>
 </a>

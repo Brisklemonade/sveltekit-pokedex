@@ -10,9 +10,7 @@ const fetchPokemon = async () => {
 		return {
 			name: data.name,
 			id: index + 1,
-			image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-				index + 1
-			}.png`,
+			image: `https://cdn.traction.one/pokedex/pokemon/${index + 1}.png`,
 			colors: {
 				fire: '#F57D31',
 				grass: '#74CB48',

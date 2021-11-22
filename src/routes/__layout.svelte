@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Fractils } from 'fractils';
+	import { darkMode } from '$lib/stores/darkMode';
 	import Navbar from '../components/Navbar.svelte';
 	import 'atropos/css/min';
 
-	let dark: string | boolean;
+	let dark = $darkMode;
 </script>
 
 <div class:dark>
